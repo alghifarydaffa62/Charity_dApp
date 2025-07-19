@@ -4,6 +4,7 @@ pragma solidity ^0.8.20;
 contract Charity {
     address public owner;
     address public recipient;
+    string public title;
     string public desc;
     uint public targetAmount;
     uint public balance;
