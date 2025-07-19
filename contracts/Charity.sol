@@ -1,37 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/**
- * @title Charity
- * @author [M Daffa Al Ghifary a.k.a alghifarydaffa62]
- * @notice A simple and secure charity wallet to receive donations and distribute them to the recipient
- * @dev Only the owner can close the charity and send collected funds into recipient
- */
 contract Charity {
-    /// @dev The owner of the charity contract
-    address public owner;
-
-    /// @notice Total amount of ether colledted from donations
-    uint256 public TotalCharity;
-
-    /// @dev Indicates whether the charity is still active or not
-    bool isActive;
-
-    /**
-     * @notice Initialize the charity contract and sets the owner and active status
-     */
-    constructor() {
-        owner = msg.sender;
-        isActive = true;
+    struct Charityy {
+        address owner;
+        address recipient;
+        uint TargetAmount;
+        uint deadline;
+        bool isCompleted;
     }
 
-    // -------------------
-    // Modifier
-    // -------------------
+    mapping(address => Charity) public charityList;
 
     /// @dev Restricts function access to only the owner
     modifier onlyOwner() {
-        require(msg.sender == owner, "You are not the owner!");
+        require(msg.sender == charityList(msg.sender).owner, "You are not the owner!");
         _;
     }
 
@@ -56,6 +39,11 @@ contract Charity {
      * @notice Allows anyone to donate to the charity while is's active
      * @dev The donation must be greather than zero
      */
+
+    function CreateCharity(uint _recipient, uint _TargetAmount, uint deadline) public {
+
+    }
+
     function donate() external payable {
         require(msg.value > 0, "Must send ether!");
         require(isActive, "Charity donations are closed!");
