@@ -1,11 +1,28 @@
 import { useState } from "react"
-export default function DeployForm() {
-    const [title, setTitle] = useState()
-    const [desc, setDesc] = useState()
-    const [recipientAddress, setRecipientAddress] = useState()
-    const [targetAmount, setTargetAmount] = useState()
-    const [deadline, setDeadline] = useState()
+import CreateNewCharity from "../lib/createCharity"
 
+export default function DeployForm({onDeploy}) {
+    const [title, setTitle] = useState("")
+    const [desc, setDesc] = useState("")
+    const [recipientAddress, setRecipientAddress] = useState("")
+    const [targetAmount, setTargetAmount] = useState("")
+    const [deadline, setDeadline] = useState("")
+
+    const handleDeploy = async () => {
+        try {
+            const dl = Math.floor(new Date(deadline).getTime() / 1000)
+            const charity = await CreateNewCharity(title, desc, recipientAddress, targetAmount, dl)
+            onDeploy(charity)
+
+            setTitle("")
+            setDesc("")
+            setRecipientAddress("")
+            setTargetAmount("")
+            setDeadline("")
+        } catch(err) {
+            console.error("Deployment error: ", err)
+        }
+    }
     return(
         <div className="flex flex-col gap-6 p-6 bg-[#122e51] rounded-lg">
             <h1 className="text-2xl font-bold">Create new Charity</h1>
@@ -32,10 +49,10 @@ export default function DeployForm() {
             
             <div className="flex flex-col gap-2">
                 <label htmlFor="" className="font-semibold text-lg">Charity Deadline:</label>
-                <input type="text" className="bg-[#164470] w-sm p-2 rounded-md" value={deadline} onChange={e => setDeadline(e.target.value)}/>
+                <input type="date" className="bg-[#164470] w-sm p-2 rounded-md" value={deadline} onChange={e => setDeadline(e.target.value)}/>
             </div>
 
-            <button className="bg-blue-600 p-2 font-semibold rounded-md cursor-pointer">Deploy charity</button>
+            <button onClick={handleDeploy} className="bg-blue-600 p-2 font-semibold rounded-md cursor-pointer">Deploy charity</button>
         </div>
     )
 }
