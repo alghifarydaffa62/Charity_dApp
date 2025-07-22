@@ -18,6 +18,7 @@ export default function Home() {
             const signer = await provider.getSigner()
             const userAddress = await signer.getAddress()
             setUserWallet(userAddress)
+            localStorage.setItem('userWallet', userAddress)
             
             const all = await fetchAllCharity()
             setCharities(all)
@@ -30,6 +31,13 @@ export default function Home() {
     }
 
     useEffect(()=> {
+        const savedWallet = localStorage.getItem('userWallet')
+        if(savedWallet) {
+            setUserWallet(savedWallet)
+            fetchAllCharity().then(setCharities)
+            fetchCharitiesByUser(savedWallet).then(setMyCharities)
+        }
+
         const saved = localStorage.getItem('charities')
         if(saved) {
             setCharities(JSON.parse(saved))
@@ -46,11 +54,17 @@ export default function Home() {
         }
     }
 
+    const handleDisconnect = () => {
+        setUserWallet(null)
+        setMyCharities([])
+        localStorage.removeItem('userWallet')
+    }
+
     return (
         <div className="text-white">
             <div className="text-center my-6">
                 <h1 className='font-bold text-3xl'>Charity dApp</h1>
-                <ButtonConnect handler={handleConnect} userWallet={userWallet} />
+                <ButtonConnect handler={handleConnect} userWallet={userWallet} disconnect={handleDisconnect}/>
             </div>
 
             {userWallet ? (

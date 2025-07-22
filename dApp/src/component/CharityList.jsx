@@ -21,7 +21,7 @@ export default function CharityList({charities, userWallet}) {
                         <p className="p-2 mt-1 bg-[#1e3769] rounded-md">{charity.recipient}</p>
                     </div>
                     <p>Target Amount: {charity.targetAmount} ETH</p>
-                    <p>Charity deadline: {charity.deadline}</p>
+                    <p>Charity deadline: {new Date(charity.deadline * 1000).toLocaleDateString()}</p>
                     {userWallet ? (
                         <button className="bg-blue-600 p-2 rounded-md font-semibold text-lg cursor-pointer">Donate</button>
                     ) : (
