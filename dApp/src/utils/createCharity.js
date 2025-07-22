@@ -27,6 +27,6 @@ export default async function CreateNewCharity(_title, _desc, _recipient, _targe
         desc: _desc,
         recipient: _recipient,
         targetAmount: _target,
-        deadline: _deadline 
+        deadline: Number(_deadline) 
     }
 }

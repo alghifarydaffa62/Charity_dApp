@@ -4,10 +4,12 @@ import ButtonConnect from "../component/ButtonConnect"
 import MyCharity from "../component/MyCharity"
 import { ethers } from "ethers"
 import { useEffect, useState } from "react"
-import { fetchCharitiesByUser } from "../lib/fetchCharity"
+import { fetchCharitiesByUser } from "../utils/fetchCharity"
+import { fetchAllCharity } from "../utils/allCharity"
 
 export default function Home() {
     const [charities, setCharities] = useState([])
+    const [myCharities, setMyCharities] = useState([])
     const [userWallet, setUserWallet] = useState()
 
     const handleConnect = async () => {
@@ -17,9 +19,11 @@ export default function Home() {
             const userAddress = await signer.getAddress()
             setUserWallet(userAddress)
             
-            console.log(userWallet)
+            const all = await fetchAllCharity()
+            setCharities(all)
+
             const myCharities = await fetchCharitiesByUser(userAddress)
-            setCharities(myCharities)
+            setMyCharities(myCharities)
         } catch (error) {
             console.error("Failed to connect: ", error)
         }
@@ -36,6 +40,10 @@ export default function Home() {
         const updated = [newCharity, ...charities]
         setCharities(updated)
         localStorage.setItem('charities', JSON.stringify(updated))
+
+        if(newCharity.owner === userWallet) {
+            setMyCharities([newCharity, ...myCharities])
+        }
     }
 
     return (
@@ -46,17 +54,19 @@ export default function Home() {
             </div>
 
             {userWallet ? (
-                <div className="flex justify-center gap-8">
-                    <DeployForm onDeploy={handleDeploy} />
-                    <MyCharity charities={charities} userWallet={userWallet} />
-                </div>  
+                <div>
+                    <div className="flex justify-center gap-8">
+                        <DeployForm onDeploy={handleDeploy} />
+                        <MyCharity charities={myCharities} userWallet={userWallet} />
+                    </div>  
+                    <div className="my-6">
+                        <h1 className="text-center text-3xl font-bold">Available charity:</h1>
+                        <CharityList charities={charities} userWallet={userWallet}/>
+                    </div>
+                </div>
             ) : (
                 <div></div>
             )}
-            <div className="my-6">
-                <h1 className="text-center text-3xl font-bold">Available charity:</h1>
-                <CharityList charities={charities}/>
-            </div>
         </div>
     )
 }

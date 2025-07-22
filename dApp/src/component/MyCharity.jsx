@@ -19,8 +19,15 @@ export default function MyCharity({ charities, userWallet }) {
             ) : (
                 myCharities.map((charity, index) => (
                     <div key={index} className="p-3 bg-[#1f3c6a] rounded-lg">
-                        <h1 className="font-semibold">{charity.title}</h1>
-                        <p className="text-sm text-gray-300">Address: {charity.address}</p>
+                        <div className="flex justify-between items-center">
+                            <h1 className="text-md font-semibold">{charity.title}</h1>
+                            {charity.isFinished ? (
+                                <p className="p-2 bg-green-500">Completed</p>
+                            ) : (   
+                                <p className="font-semibold text-sm p-2 bg-blue-700 rounded-lg">Not Completed</p>
+                            )}
+                        </div>
+                        <p className="mt-2 text-sm text-gray-300 font-semibold">Address: {charity.address}</p>
                     </div>
                 ))
             )}

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import CreateNewCharity from "../lib/createCharity"
+import CreateNewCharity from "../utils/createCharity"
 
 export default function DeployForm({onDeploy}) {
     const [title, setTitle] = useState("")
