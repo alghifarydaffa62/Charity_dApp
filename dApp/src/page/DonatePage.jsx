@@ -1,15 +1,38 @@
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { fetchCharityByAddr } from "../utils/fetchCharityByAddr"
+import DonateForm from "../component/DonateForm"
+import CharityCard from "../component/CharityCard"
+import BackButton from "../component/BackButton"
 
 export default function DonatePage() {
     const { address } = useParams()
+    const [charity, setCharity] = useState(null)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await fetchCharityByAddr(address)
+            setCharity(data)
+        }
+        fetchData()
+    }, [address])
+
+    if (!charity) return <p>Loading...</p>
 
     return(
         <div className="text-white">
             <div className="text-center my-5">
-                <h1 className="text-2xl font-semibold">Donate page</h1>
-                <h1>Title</h1>
-                <h1>Address: {address}</h1>
+                <h1 className="text-3xl font-bold">{charity.title}</h1>
+                <h1 className="text-md mt-2">Address: {charity.address}</h1>
             </div>
+            
+            <BackButton/>
+
+            <div className="flex justify-center gap-6">
+                <CharityCard charity={charity}/>
+                <DonateForm/>
+            </div>
+            
         </div>
     )
 }
