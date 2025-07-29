@@ -4,6 +4,7 @@ import { fetchCharityByAddr } from "../utils/fetchCharityByAddr"
 import DonateForm from "../component/DonateForm"
 import CharityCard from "../component/CharityCard"
 import BackButton from "../component/BackButton"
+import { LoaderCircle } from "lucide-react"
 
 export default function DonatePage() {
     const { address } = useParams()
@@ -17,7 +18,11 @@ export default function DonatePage() {
         fetchData()
     }, [address])
 
-    if (!charity) return <p>Loading...</p>
+    if (!charity) return (
+        <div className="flex justify-center items-center h-[100px]">
+            <LoaderCircle className="animate-spin text-blue-400" size={32} />
+        </div>
+    )
 
     return(
         <div className="text-white">

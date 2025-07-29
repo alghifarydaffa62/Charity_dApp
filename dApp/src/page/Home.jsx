@@ -11,6 +11,7 @@ export default function Home() {
     const [charities, setCharities] = useState([])
     const [myCharities, setMyCharities] = useState([])
     const [userWallet, setUserWallet] = useState()
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleConnect = async () => {
         try {
@@ -19,12 +20,14 @@ export default function Home() {
             const userAddress = await signer.getAddress()
             setUserWallet(userAddress)
             localStorage.setItem('userWallet', userAddress)
+            setIsLoading(true)
             
             const all = await fetchAllCharity()
             setCharities(all)
 
             const myCharities = await fetchCharitiesByUser(userAddress)
             setMyCharities(myCharities)
+            setIsLoading(false)
         } catch (error) {
             console.error("Failed to connect: ", error)
         }
@@ -35,7 +38,10 @@ export default function Home() {
         if(savedWallet) {
             setUserWallet(savedWallet)
             fetchAllCharity().then(setCharities)
-            fetchCharitiesByUser(savedWallet).then(setMyCharities)
+            setIsLoading(true)
+            fetchCharitiesByUser(savedWallet)
+                .then(setMyCharities)
+                .finally(() => setIsLoading(false))
         }
 
         const saved = localStorage.getItem('charities')
@@ -71,7 +77,7 @@ export default function Home() {
                 <div>
                     <div className="flex justify-center gap-8">
                         <DeployForm onDeploy={handleDeploy} />
-                        <MyCharity charities={myCharities} userWallet={userWallet} />
+                        <MyCharity loading={isLoading} charities={myCharities} userWallet={userWallet} />
                     </div>  
                     <div className="my-6">
                         <h1 className="text-center text-3xl font-bold">Available charity:</h1>

@@ -10,6 +10,7 @@ export default function CharityList({charities, userWallet}) {
                     ) : (   
                         <p className="font-semibold text-[14px] px-2 bg-blue-700 rounded-lg w-fit">Not Completed</p>
                     )}
+
                     <h1 className="text-xl font-semibold">{charity.title}</h1>
                     <p className="text-gray-300">{charity.desc}</p>
                     
@@ -22,10 +23,12 @@ export default function CharityList({charities, userWallet}) {
                         <p className="font-bold text-md">Recipient Address:</p>
                         <p className="p-2 mt-1 bg-[#1e3769] rounded-md">{charity.recipient}</p>
                     </div>
+
                     <p>Target Amount: {charity.balance} / {charity.targetAmount} ETH</p>
                     <p>Charity deadline: {new Date(charity.deadline * 1000).toLocaleDateString()}</p>
+
                     {userWallet ? (
-                        <Link to={`/${charity.address}`} className="bg-blue-600 text-center p-2 rounded-md font-semibold text-lg cursor-pointer">Donate</Link>
+                        <Link to={`/charity/${charity.address}`} className="bg-blue-600 text-center p-2 rounded-md font-semibold text-lg cursor-pointer">Donate</Link>
                     ) : (
                         <button className="disabled:bg-gray-600 p-2 rounded-md font-semibold text-lg cursor-pointer">Donate</button>
                     )}
