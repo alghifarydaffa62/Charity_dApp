@@ -1,12 +1,29 @@
 
 export default function CharityCard({charity}) {
     return(
-        <div className="p-5 bg-blue-950">
-            <h1>Address: {charity.address}</h1>
-            <h1>Title: {charity.title}</h1>
-            <h1>Desc: {charity.desc}</h1>
-            <h1>Target: {charity.target}</h1>
-            <h1>Collected: {charity.collected}</h1>
+        <div className="flex flex-col gap-3 p-5 bg-blue-950 rounded-lg max-w-md">
+            
+            {charity.isFinished ? (
+                <p className="p-2 bg-green-500">Completed</p>
+            ) : (   
+                <p className="font-semibold text-[14px] px-2 bg-blue-700 rounded-lg w-fit">Not Completed</p>
+            )}
+
+            <div className="">
+                <h1 className="text-lg font-semibold">Charity Address:</h1>
+                <h1 className="mt-1 p-2 bg-blue-900 rounded-md">{charity.address}</h1>
+            </div>
+
+            <div className="">
+                <h1 className="text-lg font-semibold">Recipient:</h1>
+                <h1 className="mt-1 p-2 bg-blue-900 rounded-md">{charity.recipient}</h1>
+            </div>
+
+            <h1>Charity Deadline: <span className="px-3 py-1 bg-blue-900 rounded-full">{new Date(charity.deadline * 1000).toLocaleDateString()}</span></h1>
+            <div className="">
+                <h1 className="text-lg font-semibold">Target Progress:</h1>
+                <h1 className="mt-1 p-1 bg-blue-900 rounded-full text-center">{charity.collected} / {charity.target} ETH</h1>
+            </div>
         </div>
     )
 }

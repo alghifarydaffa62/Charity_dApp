@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { HandCoins } from "lucide-react"
 
-export default function DonateForm() {
+export default function DonateForm({wallet}) {
     const [amount, setAmount] = useState()
 
     return(
@@ -14,6 +14,10 @@ export default function DonateForm() {
             <div className="flex flex-col gap-3">
                 <label className="font-semibold">Donation Amount</label>
                 <input placeholder="Enter donation value..." className="p-2 bg-blue-900 rounded-md w-sm" type="text" value={amount} onChange={e => setAmount(e.target.value)}/>
+            </div>
+            <div className="flex flex-col gap-3">
+                <label className="font-semibold">Your Wallet</label>
+                <p className="p-2 bg-blue-900 rounded-md">{wallet}</p>
             </div>
             <button className="p-2 cursor-pointer bg-blue-500 text-lg font-bold rounded-md">Donate</button>
         </div>

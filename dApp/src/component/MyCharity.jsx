@@ -32,7 +32,7 @@ export default function MyCharity({ loading, charities, userWallet }) {
                             <p className="font-semibold text-[12px] px-2 bg-blue-700 rounded-lg w-fit">Not Completed</p>
                         )}
                         <h1 className="mt-3 text-md font-semibold">{charity.title}</h1>
-                        <p className="mt-1 text-sm text-gray-300 font-semibold">Address: <Link to={`/charity/${charity.address}`} className="cursor-pointer hover:text-blue-400">{charity.address}</Link></p>
+                        <p className="mt-1 text-sm text-gray-300 font-semibold">Address: <Link to={`/charity/${charity.address}?wallet=${userWallet}`} className="cursor-pointer hover:text-blue-400">{charity.address}</Link></p>
                     </div>
                 ))
             )}

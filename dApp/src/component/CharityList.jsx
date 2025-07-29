@@ -28,7 +28,7 @@ export default function CharityList({charities, userWallet}) {
                     <p>Charity deadline: {new Date(charity.deadline * 1000).toLocaleDateString()}</p>
 
                     {userWallet ? (
-                        <Link to={`/charity/${charity.address}`} className="bg-blue-600 text-center p-2 rounded-md font-semibold text-lg cursor-pointer">Donate</Link>
+                        <Link to={`/charity/${charity.address}?wallet=${userWallet}`} className="bg-blue-600 text-center p-2 rounded-md font-semibold text-lg cursor-pointer">Donate</Link>
                     ) : (
                         <button className="disabled:bg-gray-600 p-2 rounded-md font-semibold text-lg cursor-pointer">Donate</button>
                     )}
