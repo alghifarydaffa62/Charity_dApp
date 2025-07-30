@@ -4,7 +4,7 @@ export default function CharityList({charities, userWallet}) {
     return(
         <div className="flex justify-center flex-wrap gap-3 rounded-md">
             {charities.map((charity, index) => (
-                <div key={index} className="flex flex-col gap-3 p-5 mt-4 bg-[#122e51] rounded-md w-[30rem]">
+                <div key={index} className="flex flex-col gap-3 p-5 mt-4 bg-[#122e51] rounded-md w-[30rem] h-fit">
                     {charity.isFinished ? (
                         <p className="p-2 bg-green-500">Completed</p>
                     ) : (   

@@ -5,7 +5,7 @@ export async function fetchCharityByAddr(address) {
     const provider = new ethers.BrowserProvider(window.ethereum)
     const contract = new ethers.Contract(address, CharityABI.abi, provider)
     const title = await contract.title()
-    const deployer = await contract.owner()
+    const owner = await contract.owner()
     const desc = await contract.desc()
     const recipient = await contract.recipient()
     const target = await contract.targetAmount()
@@ -14,7 +14,7 @@ export async function fetchCharityByAddr(address) {
 
     return {
         address,
-        deployer,
+        owner,
         recipient,
         title,
         desc,

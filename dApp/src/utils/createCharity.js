@@ -23,6 +23,7 @@ export default async function CreateNewCharity(_title, _desc, _recipient, _targe
 
     return {
         address: lastCharityAddress,
+        owner: userAddress,
         title: _title,
         desc: _desc,
         recipient: _recipient,

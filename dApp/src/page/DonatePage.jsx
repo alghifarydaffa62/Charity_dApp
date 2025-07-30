@@ -40,7 +40,7 @@ export default function DonatePage() {
 
             <div className="flex justify-center gap-6">
                 <CharityCard charity={charity}/>
-                <DonateForm wallet={walletAddr}/>
+                <DonateForm charity={address} wallet={walletAddr}/>
             </div>
             
         </div>
