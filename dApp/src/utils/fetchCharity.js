@@ -2,7 +2,7 @@ import { ethers } from "ethers"
 import CharityFactoryABI from "../../../artifacts/contracts/CharityFactory.sol/CharityFactory.json"
 import CharityABI from "../../../artifacts/contracts/Charity.sol/Charity.json"
 
-const FactoryAddress = "0x381caAA0d2c92e343Dc3fAD91a2239106e80CeaF"
+const FactoryAddress = "0x8F453fdcd436fC049690adC297ea2c6812110267"
 
 export async function fetchCharitiesByUser(walletAddress) {
     const provider = new ethers.BrowserProvider(window.ethereum)

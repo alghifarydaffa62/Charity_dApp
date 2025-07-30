@@ -20,15 +20,16 @@ contract Charity {
         string memory _desc, 
         address _recipient, 
         uint _targetAmount, 
-        uint _deadline
+        uint _deadline,
+        address _owner
     ) {
-        owner = msg.sender;
-        recipient = _recipient;
         title = _title;
         desc = _desc;
+        recipient = _recipient;
         targetAmount = _targetAmount;
-        balance = 0;
         deadline = _deadline;
+        owner = _owner;
+        balance = 0;
         isCompleted = false;
     }
 

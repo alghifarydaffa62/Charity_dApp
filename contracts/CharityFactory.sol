@@ -25,7 +25,8 @@ contract CharityFactory {
             _desc,
             _recipient,
             target,
-            deadline
+            deadline,
+            msg.sender
         );
 
         CharityData[msg.sender].push(newCharity);

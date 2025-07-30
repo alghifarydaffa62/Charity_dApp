@@ -1,7 +1,7 @@
 import {BrowserProvider, Contract, ContractFactory} from "ethers"
 import CharityFactory from "../../../artifacts/contracts/CharityFactory.sol/CharityFactory.json"
 
-const FactoryAddress = "0x381caAA0d2c92e343Dc3fAD91a2239106e80CeaF"
+const FactoryAddress = "0x8F453fdcd436fC049690adC297ea2c6812110267"
 
 export default async function CreateNewCharity(_title, _desc, _recipient, _target, _deadline) {
     const provider = new BrowserProvider(window.ethereum)
