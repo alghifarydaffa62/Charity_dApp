@@ -2,6 +2,9 @@ import Navbar from "../component/HomePage/Navbar"
 import Jumbotron from "../component/HomePage/Jumbotron"
 import Service from "../component/HomePage/Service"
 import About from "../component/HomePage/About"
+import HowItWorks from "../component/HomePage/HowItWork"
+import CallToAction from "../component/HomePage/CallToAction"
+import Footer from "../component/Footer"
 
 export default function Home() {
     return(
@@ -9,9 +12,10 @@ export default function Home() {
             <Navbar/>        
             <Jumbotron/>
             <About/>
-            <div className="mt-15">
-                <Service/>
-            </div>
+            <Service/>
+            <HowItWorks/>
+            <CallToAction/>
+            <Footer/>
         </div>
     )
 }

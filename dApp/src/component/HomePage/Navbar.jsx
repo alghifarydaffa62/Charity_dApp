@@ -15,7 +15,7 @@ export default function Navbar() {
                     <a href="/">Benefits</a>
                 </li>
                 <li>
-                    <a href="/charity" className="bg-blue-900 hover:bg-blue-800 px-5 py-2 rounded-lg">Connect your Wallet</a>
+                    <a href="/charity" className="bg-blue-900 hover:bg-blue-800 px-5 py-2 rounded-lg">Start Donating</a>
                 </li>
             </ul>
         </div>
