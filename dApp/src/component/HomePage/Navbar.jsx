@@ -2,9 +2,9 @@
 export default function Navbar() {
     return(
         <div className="flex justify-evenly items-center mt-7">
-            <h1 className="text-3xl font-bold">Kynd</h1>
+            <h1 className="text-4xl font-bold">Kynd</h1>
 
-            <ul className="flex gap-8 text-xl">
+            <ul className="flex gap-8 text-xl font-semibold">
                 <li>
                     <a href="/">Home</a>
                 </li>
@@ -15,7 +15,7 @@ export default function Navbar() {
                     <a href="/">Benefits</a>
                 </li>
                 <li>
-                    <a href="/Main">Connect your Wallet</a>
+                    <a href="/charity" className="bg-blue-900 hover:bg-blue-800 p-3 rounded-lg">Connect your Wallet</a>
                 </li>
             </ul>
         </div>

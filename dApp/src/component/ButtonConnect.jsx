@@ -11,7 +11,7 @@ export default function ButtonConnect({ handler, userWallet, disconnect }) {
                 </div>
             ) : (
                 <div>
-                    <h1 className="text-lg font-semibold">
+                    <h1 className="text-xl font-semibold">
                         Please connect your wallet to use our features for donate and create charity
                     </h1>
                     <button
