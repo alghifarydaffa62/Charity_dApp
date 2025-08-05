@@ -9,7 +9,9 @@ export default function Home() {
             <Navbar/>        
             <Jumbotron/>
             <About/>
-            <Service/>
+            <div className="mt-15">
+                <Service/>
+            </div>
         </div>
     )
 }

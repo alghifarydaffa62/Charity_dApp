@@ -2,5 +2,5 @@
 
 body { 
     @apply bg-[#0e243d];
-    @apply font-mono;
+    @apply font-sans;
 }
