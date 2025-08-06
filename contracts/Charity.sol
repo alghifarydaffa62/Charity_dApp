@@ -62,8 +62,10 @@ contract Charity {
         emit CharitySended(msg.sender, recipient, amount);
     }
 
-    function closeCharity() external {
-        isCompleted = true;
-        emit CharityClosed(msg.sender);
+    function CloseIfExpired() public {
+        if (!isCompleted && block.timestamp > deadline) {
+            isCompleted = true;
+            emit CharityClosed(msg.sender);
+        }
     }
 }

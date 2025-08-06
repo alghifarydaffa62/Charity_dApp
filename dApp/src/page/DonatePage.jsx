@@ -5,7 +5,6 @@ import DonateForm from "../component/DonateForm"
 import CharityCard from "../component/CharityCard"
 import BackButton from "../component/BackButton"
 import Footer from "../component/Footer"
-import donate from "../assets/donate.jpg"
 import { LoaderCircle } from "lucide-react"
 
 export default function DonatePage() {
@@ -42,7 +41,7 @@ export default function DonatePage() {
                 </div>
 
                 <div className="flex justify-center gap-6">
-                    <CharityCard charity={charity}/>
+                    <CharityCard charity={charity} wallet={walletAddr}/>
                     <DonateForm charity={address} wallet={walletAddr}/>
                 </div>
             </div>

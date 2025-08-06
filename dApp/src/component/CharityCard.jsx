@@ -1,5 +1,5 @@
 
-export default function CharityCard({charity}) {
+export default function CharityCard({charity, wallet}) {
     return(
         <div className="flex flex-col gap-3 p-5 bg-blue-950 rounded-lg max-w-md">
             
@@ -28,10 +28,20 @@ export default function CharityCard({charity}) {
             
             <div className="">
                 <h1 className="text-lg font-semibold">Target Progress:</h1>
-                <h1 className="mt-1 p-1 bg-blue-900 rounded-full text-center">{charity.collected} / {charity.target} ETH</h1>
+                <h1 className="mt-1 p-1 bg-blue-900 rounded-full text-center">{charity.collected} ETH / {charity.target} ETH</h1>
             </div>
 
-            <button className="mt-4 cursor-pointer hover:bg-blue-600 p-2 bg-blue-500 font-semibold rounded-md">Submit Charity</button>
+            {wallet === charity.owner ? (
+                (!charity.isFinished ? (
+                    <button className="mt-4 cursor-pointer bg-gray-500 py-2 font-semibold rounded-md">Charity Is Not Completed</button>
+                ) : (
+                    <button className="mt-4 cursor-pointer hover:bg-blue-600 p-2 bg-blue-500 font-semibold rounded-md">Submit Charity</button>
+                ))
+                
+            ) : (
+                <div></div>
+            )}
+            
         </div>
     )
 }
