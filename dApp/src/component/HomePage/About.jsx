@@ -5,7 +5,7 @@ import secure from "../../assets/secure.png"
 export default function About() {
     return (
         <div className="py-16 px-10 text-center bg-[#142956]">
-            <h2 className="text-3xl font-bold mb-6">Why <span className="text-blue-400">Kynd </span>?</h2>
+            <h2 className="text-5xl font-bold mb-6">Why <span className="text-blue-400">Kynd </span>?</h2>
             <p className="text-gray-300 max-w-2xl mx-auto text-xl">
                 Kynd is a decentralized application that allows donors to contribute directly and transparently to charitable causes using blockchain technology.
             </p>

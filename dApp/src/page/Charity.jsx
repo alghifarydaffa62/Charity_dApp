@@ -3,6 +3,7 @@ import DeployForm from "../component/DeployForm"
 import ButtonConnect from "../component/ButtonConnect"
 import MyCharity from "../component/MyCharity"
 import Navbar from "../component/HomePage/Navbar"
+import Footer from "../component/Footer"
 import { ethers } from "ethers"
 import { useEffect, useState } from "react"
 import { fetchCharitiesByUser } from "../utils/fetchCharity"
@@ -70,7 +71,7 @@ export default function Charity() {
     return (
         <div className="text-white">
             <Navbar/>
-            <div className="text-center my-6">
+            <div className="text-center">
                 <ButtonConnect handler={handleConnect} userWallet={userWallet} disconnect={handleDisconnect}/>
             </div>
 
@@ -84,6 +85,7 @@ export default function Charity() {
                         <h1 className="text-center text-3xl font-bold">Available charity:</h1>
                         <CharityList charities={charities} userWallet={userWallet}/>
                     </div>
+                    <Footer/>
                 </div>
             ) : (
                 <div></div>

@@ -13,7 +13,12 @@ export default function CharityCard({charity}) {
                 <h1 className="text-lg font-semibold">Charity Address:</h1>
                 <h1 className="mt-1 p-2 bg-blue-900 rounded-md">{charity.address}</h1>
             </div>
-            {charity.owner}
+
+            <div className="">
+                <h1 className="text-lg font-semibold">Charity Deployer:</h1>
+                <h1 className="mt-1 p-2 bg-blue-900 rounded-md">{charity.owner}</h1>
+            </div>
+            
             <div className="">
                 <h1 className="text-lg font-semibold">Recipient:</h1>
                 <h1 className="mt-1 p-2 bg-blue-900 rounded-md">{charity.recipient}</h1>

@@ -5,13 +5,13 @@ export default function Navbar() {
             <h1 className="text-4xl font-bold">Kynd</h1>
 
             <ul className="flex gap-8 text-xl font-semibold">
-                <li>
+                <li className="hover:text-blue-400">
                     <a href="/">Home</a>
                 </li>
-                <li>
+                <li className="hover:text-blue-400">
                     <a href="/">About</a>
                 </li>
-                <li>
+                <li className="hover:text-blue-400">
                     <a href="/">Benefits</a>
                 </li>
                 <li>

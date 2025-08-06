@@ -4,6 +4,8 @@ import { fetchCharityByAddr } from "../utils/fetchCharityByAddr"
 import DonateForm from "../component/DonateForm"
 import CharityCard from "../component/CharityCard"
 import BackButton from "../component/BackButton"
+import Footer from "../component/Footer"
+import donate from "../assets/donate.jpg"
 import { LoaderCircle } from "lucide-react"
 
 export default function DonatePage() {
@@ -29,20 +31,23 @@ export default function DonatePage() {
 
     return(
         <div className="text-white">
-            <div className="text-center my-5">
-                <h1 className="text-3xl font-bold">{charity.title}</h1>
-                <h1 className="text-xl font-semibold mt-3">{charity.desc}</h1>
-            </div>
-            
-            <div className="ml-30 mt-10">
-                <BackButton/>
-            </div>
+            <div className="my-10">
+                <div className="text-center">
+                    <h1 className="text-3xl font-bold">{charity.title}</h1>
+                    <h1 className="text-xl font-semibold mt-3">{charity.desc}</h1>
+                </div>
+                
+                <div className="ml-30 mt-10">
+                    <BackButton/>
+                </div>
 
-            <div className="flex justify-center gap-6">
-                <CharityCard charity={charity}/>
-                <DonateForm charity={address} wallet={walletAddr}/>
+                <div className="flex justify-center gap-6">
+                    <CharityCard charity={charity}/>
+                    <DonateForm charity={address} wallet={walletAddr}/>
+                </div>
             </div>
             
+            <Footer/>
         </div>
     )
 }
