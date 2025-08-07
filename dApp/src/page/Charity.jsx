@@ -1,6 +1,6 @@
 import CharityList from "../component/CharityList"
 import DeployForm from "../component/DeployForm"
-import ButtonConnect from "../component/ButtonConnect"
+import ConnectWallet from "../component/ConnectWallet"
 import MyCharity from "../component/MyCharity"
 import Navbar from "../component/HomePage/Navbar"
 import Footer from "../component/Footer"
@@ -70,9 +70,8 @@ export default function Charity() {
 
     return (
         <div className="text-white">
-            <Navbar/>
             <div className="text-center">
-                <ButtonConnect handler={handleConnect} userWallet={userWallet} disconnect={handleDisconnect}/>
+                <ConnectWallet handler={handleConnect} userWallet={userWallet} disconnect={handleDisconnect}/>
             </div>
 
             {userWallet ? (
@@ -85,7 +84,6 @@ export default function Charity() {
                         <h1 className="text-center text-3xl font-bold">Available charity:</h1>
                         <CharityList charities={charities} userWallet={userWallet}/>
                     </div>
-                    <Footer/>
                 </div>
             ) : (
                 <div></div>

@@ -10,7 +10,7 @@ export default function About() {
         <div className="py-16 px-6 bg-[#142956] text-center">
             <div className="max-w-screen-lg mx-auto">
                 <h2 className="text-5xl font-bold mb-6">
-                    Why choose <span className="text-blue-400">Kynd</span>?
+                    Why choose <span className="text-blue-400">Kynd </span>?
                 </h2>
                 <p className="text-gray-300 max-w-2xl mx-auto text-xl">
                     Kynd is a decentralized application that allows donors to contribute directly and transparently to charitable causes using blockchain technology.
@@ -20,7 +20,7 @@ export default function About() {
                     <FeatureCard
                         icon={decentralized}
                         title="Decentralized"
-                        desc="No middlemen. Donations go straight to the intended recipients via smart contracts."
+                        desc="Donations go straight to the intended recipients via smart contracts."
                     />
                     <FeatureCard
                         icon={transparant}

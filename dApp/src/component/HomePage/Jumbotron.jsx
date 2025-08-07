@@ -6,7 +6,7 @@ export default function Jumbotron() {
         <div className="flex justify-evenly items-center min-h-[90vh]">
             <div>
                 <h1 className="text-6xl font-bold">Empowering Charity<br/>with Decentralization</h1>
-                <p className="text-2xl text-gray-300 mt-4 font-bold">Join us in revolutionizing charity by 
+                <p className="text-xl text-gray-300 mt-4 font-bold">Join us in revolutionizing charity by 
                     leveraging blockchain<br/>technology for transparency, trust, and impact.</p>
                 <div className="mt-4">
                     <TryItNowButton/>
