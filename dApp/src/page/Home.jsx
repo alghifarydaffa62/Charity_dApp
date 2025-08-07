@@ -1,6 +1,5 @@
 import Navbar from "../component/HomePage/Navbar"
 import Jumbotron from "../component/HomePage/Jumbotron"
-import Service from "../component/HomePage/Service"
 import About from "../component/HomePage/About"
 import HowItWorks from "../component/HomePage/HowItWork"
 import CallToAction from "../component/HomePage/CallToAction"
@@ -12,7 +11,6 @@ export default function Home() {
             <Navbar/>        
             <Jumbotron/>
             <About/>
-            <Service/>
             <HowItWorks/>
             <CallToAction/>
             <Footer/>
