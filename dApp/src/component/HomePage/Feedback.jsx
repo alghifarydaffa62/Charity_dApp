@@ -1,3 +1,5 @@
+import FeedbackCard from "./FeedbackCard"
+
 export default function Feedback() {
     const testimonials = [
         {

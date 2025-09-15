@@ -1,6 +1,6 @@
 import Navbar from "../component/HomePage/Navbar"
-import Jumbotron from "../component/HomePage/Jumbotron"
-import About from "../component/HomePage/About"
+import Hero from "../component/HomePage/Hero"
+import Features from "../component/HomePage/Features"
 import HowItWorks from "../component/HomePage/HowItWork"
 import CallToAction from "../component/HomePage/CallToAction"
 import Feedback from "../component/HomePage/Feedback"
@@ -10,8 +10,8 @@ export default function Home() {
     return(
         <div className="text-white">
             <Navbar/>        
-            <Jumbotron/>
-            <About/>
+            <Hero/>
+            <Features/>
             <HowItWorks/>
             <Feedback/>
             <CallToAction/>
