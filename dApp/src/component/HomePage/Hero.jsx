@@ -24,7 +24,7 @@ export default function Hero() {
                         </p>
                         
                         <div className="flex flex-col justify-center sm:flex-row gap-4">
-                            <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center">
+                            <button onClick={() => window.location.href = '/charity'} className="cursor-pointer group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center">
                                 Launch App
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>

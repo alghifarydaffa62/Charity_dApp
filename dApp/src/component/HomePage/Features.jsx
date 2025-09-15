@@ -42,7 +42,7 @@ export default function Features() {
     ];
 
   return (
-        <section className="py-20 px-6" id="about">
+        <section className="py-20 px-6 scroll-smooth" id="about">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl lg:text-5xl font-bold mb-6">
