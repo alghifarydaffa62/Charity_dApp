@@ -7,10 +7,10 @@ export default function Navbar() {
                 <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-2">
                     <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                    <Heart className="w-5 h-5" />
+                        <Heart className="w-5 h-5" />
                     </div>
                     <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    Kynd
+                        Kynd
                     </span>
                 </div>
                 

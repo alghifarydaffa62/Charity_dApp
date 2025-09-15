@@ -1,4 +1,5 @@
 import { ChevronsRight } from "lucide-react"
+import StepCard from "./StepCard";
 
 export default function HowItWorks() {
     const steps = [
@@ -41,7 +42,7 @@ export default function HowItWorks() {
                             <StepCard {...step} />
                             {index < steps.length - 1 && (
                                 <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2">
-                                    <ChevronRight className="w-6 h-6 text-slate-600" />
+                                    <ChevronsRight className="w-6 h-6 text-slate-600" />
                                 </div>
                             )}
                         </div>
@@ -50,13 +51,4 @@ export default function HowItWorks() {
             </div>
         </section>
     );
-}
-
-function Step({ number, title }) {
-    return (
-        <div className="bg-[#071732] rounded-xl p-6 w-[260px] text-center">
-            <div className="text-blue-400 text-4xl font-bold">{number}</div>
-            <h3 className="text-lg mt-4 font-semibold">{title}</h3>
-        </div>
-    )
 }
