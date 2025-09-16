@@ -28,7 +28,7 @@ export default function Hero() {
                                 Launch App
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
-                            <button className="px-8 py-4 rounded-full border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white transition-all duration-300">
+                            <button onClick={() => window.location.href = '#about'} className="cursor-pointer px-8 py-4 rounded-full border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white transition-all duration-300">
                                 Learn More
                             </button>
                         </div>

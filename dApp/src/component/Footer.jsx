@@ -22,18 +22,19 @@ export default function Footer() {
                     <div>
                         <h4 className="font-semibold text-white mb-4">Product</h4>
                         <div className="space-y-2 text-sm">
-                            <a href="#" className="block text-slate-400 hover:text-white transition-colors">Features</a>
-                            <a href="#" className="block text-slate-400 hover:text-white transition-colors">How it Works</a>
-                            <a href="#" className="block text-slate-400 hover:text-white transition-colors">Pricing</a>
+                            <a href="#about" className="block text-slate-400 hover:text-white transition-colors">Features</a>
+                            <a href="#howitworks" className="block text-slate-400 hover:text-white transition-colors">How it Works</a>
+                            <a href="/charity" className="block text-slate-400 hover:text-white transition-colors">Launch App</a>
                         </div>
                     </div>
                     
                     <div>
-                        <h4 className="font-semibold text-white mb-4">Company</h4>
+                        <h4 className="font-semibold text-white mb-4">Creator - alghifarydaffa62</h4>
                         <div className="space-y-2 text-sm">
-                            <a href="#" className="block text-slate-400 hover:text-white transition-colors">About</a>
-                            <a href="#" className="block text-slate-400 hover:text-white transition-colors">Blog</a>
-                            <a href="#" className="block text-slate-400 hover:text-white transition-colors">Careers</a>
+                            <a href="https://dfpro20.vercel.app" target="_blank" className="block text-slate-400 hover:text-white transition-colors">Portfolio</a>
+                            <a href="https://github.com/alghifarydaffa62" target="_blank" className="block text-slate-400 hover:text-white transition-colors">Github</a>
+                            <a href="https://www.instagram.com/df_webdev?igsh=MWNyYWZ4cnNoeTZjdg==" target="_blank" className="block text-slate-400 hover:text-white transition-colors">Instagram</a>
+                            <a href="https://www.linkedin.com/in/mdaffaalghifary/" target="_blank" className="block text-slate-400 hover:text-white transition-colors">LinkedIn</a>
                         </div>
                     </div>
                     

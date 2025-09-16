@@ -9,7 +9,7 @@ export default function CallToAction() {
                     <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                         Difference
                     </span>
-                    ?
+                    {' '}?
                 </h2>
                 
                 <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -17,13 +17,9 @@ export default function CallToAction() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                    <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center">
+                    <button onClick={() => window.location.href = '/charity'} className="cursor-pointer  group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center">
                         Launch App
                         <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    
-                    <button className="px-8 py-4 rounded-full border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white transition-all duration-300">
-                        View Demo
                     </button>
                 </div>
                 
