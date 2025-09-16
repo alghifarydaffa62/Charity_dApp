@@ -2,7 +2,7 @@ import { Heart } from "lucide-react"
 
 export default function Navbar() {
     return(
-        <nav className="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
+        <nav className="fixed w-full top-0 z-50  backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-6 py-4">
                 <div className="flex justify-around items-center">
                     <div className="flex items-center space-x-2">
@@ -15,7 +15,7 @@ export default function Navbar() {
                     </div>
                     
                     <div className="hidden md:flex items-center space-x-8">
-                        <a href="#home" className="text-slate-300 hover:text-white transition-colors">Home</a>
+                        <a href="/" className="text-slate-300 hover:text-white transition-colors">Home</a>
                         <a href="#about" className="text-slate-300 hover:text-white transition-colors">About</a>
                         <a href="#howitworks" className="text-slate-300 hover:text-white transition-colors">Step by step</a>
                         <a href="#testimonials" className="text-slate-300 hover:text-white transition-colors">Testimonials</a>

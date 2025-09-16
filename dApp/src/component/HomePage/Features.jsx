@@ -50,7 +50,7 @@ export default function Features() {
                         <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                             Kynd
                         </span>
-                        ?
+                        {' '}?
                     </h2>
                     <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
                         Experience the future of charitable giving with blockchain technology that ensures transparency, security, and direct impact.
