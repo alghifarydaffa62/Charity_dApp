@@ -19,7 +19,7 @@ export default function ConnectWallet({ handler, userWallet, disconnect }) {
     <div>
       <div className="relative z-10">
         {userWallet ? (
-          <main className="flex items-center justify-center my-10 px-6">
+          <main className="flex items-center justify-center p-8">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <div className="flex items-center justify-center space-x-4 text-xl">
                 <span className="font-semibold text-white">Connected Wallet:</span>
