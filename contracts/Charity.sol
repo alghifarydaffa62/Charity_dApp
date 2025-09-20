@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-contract Charity {
+import "@openzeppelin/utils/ReentrancyGuard.sol";
+
+contract Charity is ReentrancyGuard {
     address public owner;
     address public recipient;
     string public title;
@@ -58,7 +60,7 @@ contract Charity {
         _;
     }
 
-    function donate() external payable charityActive {
+    function donate() external payable nonReentrant charityActive {
         require(msg.value > 0, "Must send ether!");
 
         donations.push(Donation({
@@ -82,7 +84,7 @@ contract Charity {
         }
     }
 
-    function SendCharity() external payable onlyOwner {
+    function SendCharity() external payable onlyOwner nonReentrant {
         require(!isCompleted || block.timestamp > deadline, "Charity is still active!");
         require(balance > 0, "No funds to send!");
 
