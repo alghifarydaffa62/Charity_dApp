@@ -11,9 +11,19 @@ contract Charity {
     uint public deadline;
     bool public isCompleted;
 
-    event donateSuccess(address indexed donator, uint256 amount);
-    event CharitySended(address indexed owner, address indexed recipient, uint256 amount);
-    event CharityClosed(address indexed owner);
+    struct Donation {
+        address donator;
+        uint amount;
+        uint timestamp;
+    }
+
+    Donation[] public donations;
+    mapping(address => uint) public donorContributions;
+    address[] public donorAddresses;
+
+    event donateSuccess(address indexed donator, uint amount, uint timestamp);
+    event CharitySended(address indexed owner, address indexed recipient, uint amount);
+    event CharityClosed(address indexed owner, uint timestamp);
 
     constructor(
         string memory _title, 
@@ -23,6 +33,10 @@ contract Charity {
         uint _deadline,
         address _owner
     ) {
+        require(_recipient != address(0), "Invalid Recipient Address");
+        require(_targetAmount > 0, "Invalid Target Amount");
+        require(_deadline > block.timestamp, "Deadline must be in the future");
+
         title = _title;
         desc = _desc;
         recipient = _recipient;
@@ -38,34 +52,88 @@ contract Charity {
         _;
     }
 
-    function donate() external payable {
+    modifier charityActive() {
+        require(!isCompleted, "Charity is completed!");
+        require(block.timestamp <= deadline, "Charity deadline has passed!");
+        _;
+    }
+
+    function donate() external payable charityActive {
         require(msg.value > 0, "Must send ether!");
-        require(!isCompleted, "Charity donations are closed!");
-        require(block.timestamp <= deadline, "Charity donation are closed!");
+
+        donations.push(Donation({
+            donator: msg.sender,
+            amount: msg.value,
+            timestamp: block.timestamp
+        }));
+
+        if(donorContributions[msg.sender] == 0) {
+            donorAddresses.push(msg.sender);
+        }
+
+        donorContributions[msg.sender] += msg.value;
 
         balance += msg.value;
 
-        emit donateSuccess(msg.sender, msg.value);
+        emit donateSuccess(msg.sender, msg.value, block.timestamp);
+
+        if(balance >= targetAmount) {
+            isCompleted = true;
+        }
     }
 
     function SendCharity() external payable onlyOwner {
-        require(!isCompleted, "Charity is still active!");
+        require(!isCompleted || block.timestamp > deadline, "Charity is still active!");
         require(balance > 0, "No funds to send!");
-        require(block.timestamp > deadline, "Charity is still active!");
 
         uint amount = balance;
         balance = 0;
+        isCompleted = true;
 
         (bool success,) = recipient.call{value: amount}("");
-        require(success);
+        require(success, "Transfer failed!");
 
         emit CharitySended(msg.sender, recipient, amount);
     }
 
-    function CloseIfExpired() public {
-        if (!isCompleted && block.timestamp > deadline) {
-            isCompleted = true;
-            emit CharityClosed(msg.sender);
-        }
+    function CloseCharity() public {
+        require(!isCompleted, "Charity Already Completed!");
+        isCompleted = true;
+        emit CharityClosed(msg.sender, block.timestamp);
+    }
+
+    function getDonationsCount() external view returns (uint) {
+        return donations.length;
+    }
+
+    function getDonation(uint index) external view returns(address donator, uint amount, uint timestamp) {
+        require(index <= donations.length, "Invalid Index");
+        Donation memory donation = donations[index];
+        return (donation.donator, donation.amount, donation.timestamp);
+    }
+
+    function getAllDonation() external view returns(Donation[] memory) {
+        return donations;
+    }
+
+    function getDonorAddress() external view returns(address[] memory) {
+        return donorAddresses;
+    }
+
+    function getDonorContribution(address donor) external view returns(uint) {
+        return donorContributions[donor];
+    }
+
+    function getCharityInfo() external view returns(
+        string memory _title,
+        string memory _desc,
+        address _owner,
+        address _recipient, 
+        uint _targetAmount, 
+        uint _balance,
+        uint _deadline,
+        bool _isCompleted
+    ) {
+        return (title, desc, owner, recipient, targetAmount, balance, deadline, isCompleted);
     }
 }
