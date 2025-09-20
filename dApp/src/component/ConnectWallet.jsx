@@ -6,7 +6,6 @@ import {
   Zap, 
   Check,
   ChevronRight,
-  Lock,
   Globe,
 } from 'lucide-react';
 

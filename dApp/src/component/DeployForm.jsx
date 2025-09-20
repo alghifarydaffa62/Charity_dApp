@@ -5,7 +5,6 @@ import DeploySuccess from "./popup/DeploySuccess"
 import CreateNewCharity from "../utils/createCharity"
 import { Plus } from 'lucide-react';
 
-
 export default function DeployForm({ onDeploy }) {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");

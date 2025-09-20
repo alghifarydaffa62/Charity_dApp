@@ -2,19 +2,11 @@ import CharityList from "../component/CharityList"
 import DeployForm from "../component/DeployForm"
 import ConnectWallet from "../component/ConnectWallet"
 import MyCharity from "../component/MyCharity"
-import Navbar from "../component/HomePage/Navbar"
-import Footer from "../component/Footer"
 import { ethers } from "ethers"
 import { useEffect, useState } from "react"
 import { fetchCharitiesByUser } from "../utils/fetchCharity"
 import { fetchAllCharity } from "../utils/allCharity"
-import { 
-  Wallet, 
-  Heart
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
 
-// Main Charity Page Component
 export default function Charity() {
   const [charities, setCharities] = useState([]);
   const [myCharities, setMyCharities] = useState([]);
