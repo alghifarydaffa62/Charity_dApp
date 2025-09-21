@@ -107,7 +107,7 @@ export default function DonateForm({ charity, wallet }) {
           <button 
             onClick={handleDonate}
             disabled={!amount || isProcessing}
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-slate-600 disabled:to-slate-600 px-6 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="cursor-pointer w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-slate-600 disabled:to-slate-600 px-6 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             {isProcessing ? (
               <div className="flex items-center justify-center space-x-2">

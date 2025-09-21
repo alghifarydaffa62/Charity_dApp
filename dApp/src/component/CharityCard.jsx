@@ -124,21 +124,21 @@ export default function CharityCard({ charity, wallet }) {
 
       {wallet === charity.owner && (
         <div className="pt-4 border-t border-slate-700/50">
-          {!charity.isFinished ? (
-            <button 
-              disabled
-              className="w-full bg-slate-600 text-slate-400 py-3 rounded-xl font-semibold cursor-not-allowed"
-            >
-              Campaign Still Active
-            </button>
-          ) : (
-            <button 
-              onClick={handleSubmit}
-              className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl"
-            >
-              Release Funds to Recipient
-            </button>
-          )}
+            {charity.collected == charity.target ? (
+              <button 
+                onClick={handleSubmit}
+                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl"
+              >
+                Release Funds to Recipient
+              </button>
+            ) : (
+              <button 
+                disabled
+                className="w-full bg-slate-600 text-slate-400 py-3 rounded-xl font-semibold cursor-not-allowed"
+              >
+                Campaign Still Active
+              </button>
+            )}
         </div>
       )}
     </div>
