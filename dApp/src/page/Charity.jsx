@@ -80,7 +80,7 @@ export default function Charity() {
 
         {userWallet ? (
           <main className="max-w-7xl mx-auto px-6 pb-12">
-            <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div className="flex justify-center flex-col lg:flex-row gap-8 mb-12">
               <DeployForm onDeploy={handleDeploy} />
               <MyCharity loading={isLoading} charities={myCharities} userWallet={userWallet} />
             </div>

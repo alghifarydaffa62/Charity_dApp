@@ -49,7 +49,7 @@ export default function CharityList({ charities, userWallet }) {
                 <Zap className="w-4 h-4 mr-1" />
                 Contract Address
               </p>
-              <div className="bg-slate-700/50 rounded-lg p-3">
+              <div className="bg-slate-700/50 rounded-lg p-2">
                 <p className="font-mono text-sm text-slate-300 break-all">
                   {charity.address}
                 </p>
@@ -61,7 +61,7 @@ export default function CharityList({ charities, userWallet }) {
                 <Wallet className="w-4 h-4 mr-1" />
                 Recipient
               </p>
-              <div className="bg-slate-700/50 rounded-lg p-3">
+              <div className="bg-slate-700/50 rounded-lg p-2">
                 <p className="font-mono text-sm text-slate-300 break-all">
                   {charity.recipient}
                 </p>
