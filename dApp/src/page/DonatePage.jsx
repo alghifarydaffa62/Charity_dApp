@@ -35,23 +35,19 @@ export default function DonatePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white">
-      {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10">
-        {/* Header */}
         <header className="p-6">
           <div className="max-w-7xl mx-auto">
             <BackButton />
           </div>
         </header>
 
-        {/* Main Content */}
         <main className="max-w-7xl mx-auto px-6 pb-12">
-          {/* Hero Section */}
           <div className="text-center mb-12 space-y-6">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
@@ -63,7 +59,6 @@ export default function DonatePage() {
             </div>
           </div>
 
-          {/* Main Grid */}
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <CharityCard charity={charity} wallet={walletAddr} />
             <DonateForm charity={address} wallet={walletAddr} />

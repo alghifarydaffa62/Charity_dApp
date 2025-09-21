@@ -47,7 +47,6 @@ export default function DonateForm({ charity, wallet }) {
       {donateSuccess && <DonateSuccess isOpen={donateSuccess} onClose={() => setDonateSuccess(false)} />}
       
       <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 h-fit">
-        {/* Header */}
         <div className="flex items-center space-x-3 mb-8">
           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
             <HandCoins className="w-7 h-7 text-white" />
@@ -59,7 +58,6 @@ export default function DonateForm({ charity, wallet }) {
         </div>
 
         <div className="space-y-6">
-          {/* Donation Amount */}
           <div>
             <label className="block font-semibold text-slate-200 mb-3">
               <DollarSign className="w-4 h-4 inline mr-2" />
@@ -79,7 +77,6 @@ export default function DonateForm({ charity, wallet }) {
             </p>
           </div>
 
-          {/* Wallet Address */}
           <div>
             <label className="block font-semibold text-slate-200 mb-3">
               <Wallet className="w-4 h-4 inline mr-2" />
@@ -92,7 +89,6 @@ export default function DonateForm({ charity, wallet }) {
             </div>
           </div>
 
-          {/* Quick Amount Buttons */}
           <div>
             <label className="block font-semibold text-slate-200 mb-3">Quick Select</label>
             <div className="grid grid-cols-4 gap-2">
@@ -108,7 +104,6 @@ export default function DonateForm({ charity, wallet }) {
             </div>
           </div>
 
-          {/* Donate Button */}
           <button 
             onClick={handleDonate}
             disabled={!amount || isProcessing}
@@ -127,7 +122,6 @@ export default function DonateForm({ charity, wallet }) {
             )}
           </button>
 
-          {/* Security Notice */}
           <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
             <div className="flex items-start space-x-3">
               <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />

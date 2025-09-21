@@ -28,7 +28,6 @@ export default function CharityCard({ charity, wallet }) {
 
   return (
     <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 space-y-6">
-      {/* Status Badge */}
       <div className="flex justify-between items-start">
         {charity.isFinished ? (
           <span className="flex items-center space-x-2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-semibold">
@@ -43,9 +42,7 @@ export default function CharityCard({ charity, wallet }) {
         )}
       </div>
 
-      {/* Charity Details */}
       <div className="space-y-6">
-        {/* Contract Address */}
         <div>
           <div className="flex items-center space-x-2 mb-3">
             <Zap className="w-5 h-5 text-blue-400" />
@@ -58,7 +55,6 @@ export default function CharityCard({ charity, wallet }) {
           </div>
         </div>
 
-        {/* Deployer */}
         <div>
           <div className="flex items-center space-x-2 mb-3">
             <User className="w-5 h-5 text-purple-400" />
@@ -71,7 +67,6 @@ export default function CharityCard({ charity, wallet }) {
           </div>
         </div>
 
-        {/* Recipient */}
         <div>
           <div className="flex items-center space-x-2 mb-3">
             <Wallet className="w-5 h-5 text-green-400" />
@@ -84,7 +79,6 @@ export default function CharityCard({ charity, wallet }) {
           </div>
         </div>
 
-        {/* Deadline */}
         <div>
           <div className="flex items-center space-x-2 mb-3">
             <Calendar className="w-5 h-5 text-orange-400" />
@@ -101,7 +95,6 @@ export default function CharityCard({ charity, wallet }) {
           </div>
         </div>
 
-        {/* Progress */}
         <div>
           <div className="flex items-center space-x-2 mb-3">
             <Target className="w-5 h-5 text-pink-400" />
@@ -129,7 +122,6 @@ export default function CharityCard({ charity, wallet }) {
         </div>
       </div>
 
-      {/* Owner Actions */}
       {wallet === charity.owner && (
         <div className="pt-4 border-t border-slate-700/50">
           {!charity.isFinished ? (

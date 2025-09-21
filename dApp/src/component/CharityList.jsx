@@ -9,6 +9,7 @@ import {
   Zap,
   Heart
 } from 'lucide-react';
+
 export default function CharityList({ charities, userWallet }) {
   if (charities.length === 0) {
     return (
